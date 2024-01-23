@@ -2,14 +2,77 @@
 <html>
 <head>
   <title>Extension Options</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input {
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #configurations {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .configuration {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f9f9f9;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-  <h2>URL Redirector Options</h2>
-  <label for="sourceUrl">Source URL:</label>
-  <input type="text" id="sourceUrl" placeholder="Enter source URL"><br>
-  <label for="destinationUrl">Destination URL:</label>
-  <input type="text" id="destinationUrl" placeholder="Enter destination URL"><br>
-  <button id="saveOptions">Save Options</button>
+  <h2>Extension Options</h2>
+
+  <ul id="configurations"></ul>
+
+  <form id="addConfigurationForm">
+    <label for="sourceUrl">Source URL:</label>
+    <input type="text" id="sourceUrl" name="sourceUrl" required>
+
+    <label for="destinationUrl">Destination URL:</label>
+    <input type="text" id="destinationUrl" name="destinationUrl" required>
+
+    <button type="submit" id="addConfigurationButton">Add Configuration</button>
+  </form>
+
+  <button id="clearConfigurationsButton">Clear Configurations</button>
 
   <script src="options.js"></script>
 </body>
