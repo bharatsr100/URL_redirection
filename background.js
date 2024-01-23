@@ -1,4 +1,5 @@
 chrome.runtime.onInstalled.addListener(function () {
+    /*
     chrome.contextMenus.create({
       id: "viewOptions",
       title: "View Options",
@@ -9,7 +10,7 @@ chrome.runtime.onInstalled.addListener(function () {
       if (info.menuItemId === "viewOptions") {
         chrome.runtime.sendMessage({ message: "openViewOptions" });
       }
-    });
+    });*/
   });
   
   chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
