@@ -20,12 +20,15 @@ chrome.runtime.onInstalled.addListener(function () {
   });
   
   chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
-    chrome.storage.sync.get({ configurations: [] }, function (options) {
-      options.configurations.forEach(({ sourceUrl, destinationUrl }) => {
-        if (sourceUrl && details.url.startsWith(sourceUrl)) {
-          chrome.tabs.update(details.tabId, { url: destinationUrl });
-        }
+    // Check if the navigation is happening in the main frame
+    if (details.frameId === 0) {
+      chrome.storage.sync.get({ configurations: [] }, function (options) {
+        options.configurations.forEach(({ sourceUrl, destinationUrl }) => {
+          if (sourceUrl && details.url.startsWith(sourceUrl)) {
+            chrome.tabs.update(details.tabId, { url: destinationUrl });
+          }
+        });
       });
-    });
+    }
   });
   
